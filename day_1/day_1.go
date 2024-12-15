@@ -12,10 +12,10 @@ import (
 	"errors"	
 )
 
-func Complete() {
+func Complete(input_file string) {
 	fmt.Println("Solving Day 1")
 	
-	left_vals, right_vals := ReadInput()
+	left_vals, right_vals := ReadInput(input_file)
 	
 	slices.Sort(left_vals)
 	slices.Sort(right_vals)
@@ -86,8 +86,8 @@ func SolvePartTwo(left []int, right []int) (int, error) {
 	return result, nil
 }
 
-func ReadInput() ([]int, []int) {
-	f, err := os.Open("../inputs/day_1.txt")
+func ReadInput(input_file string) ([]int, []int) {
+	f, err := os.Open("./inputs/day_1.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
